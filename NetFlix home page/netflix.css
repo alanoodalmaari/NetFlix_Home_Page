@@ -1,0 +1,448 @@
+*{ 
+    /* must do this in any website  */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body{
+    background: #000; 
+}
+::selection {
+    color: red;
+    background: yellow;
+  }
+
+
+
+/* grand father and father */
+.container .head{
+    /* put position absoulate to apperar on the background */
+    position: absolute; 
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    /* use  align-items: center; ع
+    عشان تكون متساويه مافيه شيء فوق شيء ع نفس السطر
+     */
+    align-items: center;
+    width: 100%;
+    /* 
+      padding: 0 50px;
+    right and left 
+    حطينا هالخاصيه عشان م نكون لازقه ف يمين ويسار الموقع 
+    */
+    padding: 0 50px;
+
+    /* 
+    z-index: 2;
+    عشان تطلع ع الصوره
+    */
+    z-index: 2;
+
+    /* 
+    If i want to creat any head should put 
+     display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+     */
+}
+.container .head img{
+    width: 13%;
+}
+
+.container .head a{
+    color: #fff;
+
+    /* 
+    text-decoration: none;
+    يشيل الخط
+     */
+    text-decoration: none;
+    background-color: #e50914;
+    padding: 8px 18px;
+    border-radius: 5px;
+}
+/* 
+--------------------------------------
+ */
+
+ .banner{
+    width: 100%;
+    height: 100vh; 
+    /* relative cuz of the father */
+    position: relative; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner .fit{
+    /* modify the img */
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* make cover
+     such as background cover
+    */
+    object-fit: cover;
+}
+
+.banner .box{
+    /* cuz banner is relative cuz is father box is child put absoulate  */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /* 
+     transform: translate(-50%,-50%);
+     same to justify-content: center;
+      align-items: center; 
+    */
+
+    /* we put 3 
+    عشان نبغئ البوكس اعلئ شيء
+    وظيفته تظهر شيء فوق شيء 
+    */
+    z-index: 3;
+}
+
+
+/* 
+ways to bring the elemnt to cneter 
+
+1- 
+position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    
+2- 
+   text cnter
+
+3- 
+display:flex
+justify-content: center;
+align-items: center;
+
+4- 
+
+width= 500px or 600 px 
+margin= auto
+*/
+
+
+.banner .box .headding{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.banner .box .headding h1{
+    font-size: 50px;
+    color: #fff;
+    /* الفرق بين الحروف */
+    letter-spacing:2px ;
+}
+
+.banner .box .headding p{
+    font-size: 20px;
+    color: #fff;
+    /* to put space */
+    padding: 16px 0;
+}
+
+/* just to put them center */
+.banner .box .search{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.banner .box .search input{
+    font-size: 16px;
+    border: 1px solid #8c8c8c;
+    /* عشان يختفي اللون الاسود يوم اضغط */
+    outline: none;
+    border-radius: 3px;
+    padding: 10px;
+    /* 
+    min--width cuz response 
+    */
+    min-width: 450px;
+    height: 60px;
+    align-items: center;
+}
+
+.banner .box .search a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #fff;
+    background-color: #e50914;
+    font-size: 28px;
+    border-radius: 3px;
+    font-weight: 400;
+    /* عشان نجي نفس طول الايميل انبت */
+    line-height: 60px;
+    min-width: 230px;
+    padding: 0px 15px;
+}
+
+/* 
+احط المحتوئ اي نوع من العناصر 
+بعدين احدد ي قبل ي بعد مثلا 
+h1::after{
+    conternt: 'alanood';
+}
+تجي بعد 
+ <h1>This is a </h1>
+------------
+
+the answer will be 
+
+This is a alanood 
+
+*/
+
+/*
+:: selection 
+يغير اللون يوم تحدد 
+:: selection {
+    color: red;
+    backgroung:yellow;
+}
+
+*/
+
+/* اضيف الضبابيه */
+
+.banner::before{
+    /* must add content with before */
+    content: '';
+    position: absolute;
+    /* 
+    0 
+    عشان يجي لاصق بالشاشه
+    */
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* 
+     م ازيد في الطول عشان م تغطي 
+    */
+    height: 300px;
+    /* 
+     z-index: 1;
+     عشان تطلع ع الصوره 
+     overlew
+    */
+    z-index: 1;
+    /* 
+    must add  background: linear-gradient
+    عشان الضبابيه 
+    transparent 
+    تسوي شفافيه من تحت
+    */
+    background: linear-gradient(to bottom,#000,transparent);
+}
+
+/* 
+عشان نضيف من تحت 
+must put bottom 
+
+*/
+
+.banner::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    /* 
+    change bottom to top
+    */
+    background: linear-gradient(to top,#000,transparent);
+}
+
+.part1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    /* 
+    الشيء الرصاصي اللي يقسم بينهم
+    */
+    border-bottom: 17px solid #111;
+}
+
+.part1 .talk{
+    width: 40%; 
+}
+
+.part1 .talk h1{
+     font-size: 45px;
+     letter-spacing: 2px;
+     padding-bottom: 10px;
+     color: #fff;
+}
+
+.part1 .talk p{
+    font-size: 27px;
+    color: #fff;
+}
+
+.part1 .img{
+    width: 47%; 
+}
+/* part2 */
+
+.part2{
+    /* 
+     margin-top: 100px;
+     عشان السيكوشن اللي فوق
+    */
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 50px 100px;
+    border-bottom: 17px solid #111;
+}
+.pos{
+    position: relative;
+}
+
+.pos video{
+    position: absolute;
+    top: 70px ;
+    left: 64px;
+    /* عشان الريموت يجي فوق */
+    z-index: -1 ;
+
+}
+.texth1{
+    font-size: 50px;
+    color: #fff;
+    padding-bottom: 10px;
+    letter-spacing: 2px;
+}
+.textp{
+    color: #fff;
+    font-size: 28px;
+}
+
+/*
+عشان تجي بالنص 
+ */
+.list{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+  
+}
+/* .list span{
+    color: #fff;
+    font-size: 32px;
+} */
+
+.list p{
+    color: #fff;
+    font-size: 32px;
+    height: 0;
+}
+.list a{
+    text-decoration: none;
+}
+.title{
+   background-color: #303030;
+   padding: 20px 30px;
+   display: flex;
+   /* space btween cuz i will add icone */
+   justify-content: space-between;
+   font-size: 27px;
+   text-decoration: none;
+   color: #fff;
+ 
+   
+}
+
+.icon{
+    position: relative;
+    width: 20px;
+}
+/* عشان يسويه بالعرض */
+ .icon::before,.icon::after{
+     content: "";
+     position: absolute;
+     width: 20px;
+     height: 3px;
+     background-color: #fff;
+     top: -2.5;
+ }
+
+ /* عشان يسويه بالطول */
+ .icon::after{
+     transform: rotate(90deg);
+     transform: all 0.5s linear;
+ }
+
+
+ /* 
+ want to appear and siapperar 
+عشان نخفي الباراقرف 
+opsity=0 
+ */
+
+ /* design of p  */
+ .textp{
+     opacity: 0;
+     background-color:  #303030;
+     line-height: 30px;
+     margin: 3px 0;
+     color: #fff;
+     font-weight: 400;
+     font-size: 27px;
+ }
+
+ /* لما اضغط يصير action */
+
+ /* 
+ target 
+ لما اضغط يطلع الكلام
+ 
+ */
+
+ .item:target .textp{
+     /* opacity: 1;
+     عشان لما اضغط تطلع لي 
+     */
+     opacity: 1;
+     height: auto;
+     padding: 20px 30px;
+     border-top: 2px solid #000;
+     margin-bottom: 6px;
+    
+     
+
+ }
+ /* عشان يطلع علامة -  */
+
+ .item:target  .icon::after{
+    transform: rotateY(90deg);
+}
+
+
+
+
